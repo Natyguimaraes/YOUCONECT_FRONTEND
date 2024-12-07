@@ -108,8 +108,26 @@ function CadastroProj() {
               onChange={handleChange}
             >
               <option value="">Selecione o curso</option>
-              <option value="Administração">Administração</option>
-              {/* Outros cursos */}
+              <option value="">Curso</option>
+                        <option value="Administração">Administração</option>
+                        <option value="Automação industrial">Automação industrial</option>
+                        <option value="Biotecnologia">Biotecnologia</option>
+                        <option value="Desenvolvimento de sistemas">Desenvolvimento de sistemas</option>
+                        <option value="Edificações">Edificações</option>
+                        <option value="Eletromecânica">Eletromecânica</option>
+                        <option value="Eletrotécnica">Eletrotécnica</option>
+                        <option value="Logística">Logística</option>
+                        <option value="Manutenção automotiva">Manutenção automotiva</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Mecânica">Mecânica</option>
+                        <option value="Mecatrônica">Mecatrônica</option>
+                        <option value="Multimídia">Multimídia</option>
+                        <option value="Petroquímica">Petroquímica</option>
+                        <option value="Qualidade">Qualidade</option>
+                        <option value="Química">Química</option>
+                        <option value="Redes de computadores">Redes de computadores</option>
+                        <option value="Refrigeração e climatização">Refrigeração e climatização</option>
+                        <option value="Segurança do trabalho">Segurança do trabalho</option>
             </select>
             {errors.curso_projeto && <span className="error">{errors.curso_projeto}</span>}
           </div>
