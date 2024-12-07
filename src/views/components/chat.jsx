@@ -8,8 +8,17 @@ function Chat() {
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
+      // Adiciona a mensagem do usuário
       setMessages([...messages, { text: newMessage, sender: 'me' }]);
       setNewMessage('');
+
+      // Simula uma resposta automática após 1 segundo
+      setTimeout(() => {
+        setMessages(prevMessages => [
+          ...prevMessages,
+          { text: "Recurso em breve", sender: 'bot' }
+        ]);
+      }, 1000);  // Ajuste o tempo de resposta automática aqui (1000ms = 1 segundo)
     }
   };
 
@@ -43,3 +52,4 @@ function Chat() {
 }
 
 export default Chat;
+
