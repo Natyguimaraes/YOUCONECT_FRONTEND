@@ -63,24 +63,7 @@ const Perfil = () => {
           onChange={handleBioChange}
           placeholder="Escreva sua biografia aqui" />
       </div>
-
-      <div className="birth-date-section">
-        <h3> Data de Nascimento </h3>
-        <input
-          type="date"
-          value={birthDate}
-          onChange={handleBirthDateChange}
-          className="birth-date-input" />
-      </div>
-
-      <div className="privacy-section">
-        <h3> Configurações de Privacidade </h3>
-        <select value={privacy} onChange={handlePrivacyChange} className="privacy-select">
-          <option value="public"> Público </option>
-          <option value="friends"> Somente Amigos </option>
-          <option value="private"> Privado </option>
-        </select>
-      </div>
+     
 
       <button onClick={handleSave} className="save-button"> Salvar </button>
     </div><FooterMenu /></>
