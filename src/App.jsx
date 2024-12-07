@@ -7,9 +7,11 @@ import Home from './views/components/home';
 import Chat from './views/components/chat';
 import CadastroProj from './views/components/CadastroProjeto';
 import Perfil from './views/components/profile';
+import { ProjectProvider } from './views/components/projectContext';
 
 function App() {
   return (
+    <ProjectProvider>
     <Router>
       <div>
         <Nav />
@@ -23,6 +25,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </ProjectProvider>
   );
 }
 
