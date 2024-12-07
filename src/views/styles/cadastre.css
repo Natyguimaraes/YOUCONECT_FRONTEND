@@ -18,6 +18,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
+    box-sizing: border-box; /* Garante que o padding não ultrapasse a largura total */
 }
 
 .cadastre-form h1 {
@@ -37,6 +38,8 @@
     border: 1px solid #ccc;
     background: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
+    width: 100%; /* Garante que os campos ocupem toda a largura disponível */
+    box-sizing: border-box;
 }
 
 .cadastre-form #cadastre-row2,
@@ -59,6 +62,8 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%; /* Garante que o botão de submit ocupe toda a largura */
+    box-sizing: border-box;
 }
 
 .cadastre-form input[type="submit"]:hover {
@@ -85,18 +90,43 @@
     margin-bottom: 1rem;
 }
 
+/* Responsividade para telas pequenas */
 @media (max-width: 768px) {
+    .cadastre-form {
+        padding: 15px; /* Reduz o padding em telas menores */
+    }
+
     .cadastre-form #cadastre-row2,
     .cadastre-form #cadastre-row3 {
-        flex-direction: column;
+        flex-direction: column; /* Coloca os campos em coluna em vez de linha */
     }
 
     .cadastre-form input[type="text"],
     .cadastre-form input[type="password"],
-    .cadastre-form input[type="date"]
-     {
-        width: 100%;
-        padding: 1rem;
+    .cadastre-form input[type="date"],
+    .cadastre-form select {
+        padding: 0.8rem; /* Ajuste de padding para dispositivos móveis */
+        font-size: 0.95rem; /* Ajuste o tamanho da fonte para melhor legibilidade */
     }
 
+    .cadastre-form input[type="submit"] {
+        padding: 1rem; /* Garante que o botão não perca altura em telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .cadastre-form {
+        padding: 10px; /* Menos padding em telas muito pequenas */
+    }
+
+    .cadastre-form input[type="text"],
+    .cadastre-form input[type="password"],
+    .cadastre-form input[type="date"],
+    .cadastre-form select {
+        font-size: 0.85rem; /* Reduz o tamanho da fonte em telas muito pequenas */
+    }
+
+    .cadastre-form input[type="submit"] {
+        font-size: 1rem; /* Ajuste o tamanho da fonte do botão */
+    }
 }

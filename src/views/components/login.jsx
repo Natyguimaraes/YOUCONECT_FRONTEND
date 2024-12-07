@@ -16,30 +16,15 @@ function Login() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:3000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Erro ao enviar a solicitação: ${response.status}`);
-      }
-
-      const json = await response.json();
-      if (json.success) {
-        navigate('/home');
-      } else {
-        console.error('Erro de login:', json.message);
-        // Exibir mensagem de erro para o usuário
-      }
-    } catch (err) {
-      console.error('Erro ao enviar os dados', err);
+    // Simulação de login bem-sucedido sem backend
+    if (formData.email && formData.senha) {
+      // Redireciona para a página 'home'
+      navigate('/home');
+    } else {
+      console.error('Preencha todos os campos');
+      // Você pode adicionar um mecanismo de erro aqui para notificar o usuário
     }
   };
 
