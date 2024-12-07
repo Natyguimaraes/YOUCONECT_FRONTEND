@@ -42,7 +42,6 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    flex-direction: row;
 }
 
 .vector-image {
@@ -79,15 +78,13 @@ form {
 }
 
 input[type="text"],
-input[type="password"],
-button[type="submit"] {
+input[type="password"] {
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     background: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
-    width: 100%; /* Garantir que o input ocupe toda a largura */
 }
 
 button[type="submit"] {
@@ -141,10 +138,15 @@ a#createconta.create-account:hover {
     background-color: #b057b9;
 }
 
-/* Estilos para dispositivos móveis */
 @media (max-width: 768px) {
     .content-wrapper {
         flex-direction: column;
+        padding: 10px; /* Reduz o padding para melhorar o espaçamento em dispositivos móveis */
+    }
+
+    .vector-image,
+    .container_login {
+        max-width: 100%;
         padding: 10px; /* Reduz o padding para melhorar o espaçamento em dispositivos móveis */
     }
 
@@ -152,29 +154,11 @@ a#createconta.create-account:hover {
         display: none; /* Esconde a imagem em telas menores */
     }
 
-    .container_login {
-        max-width: 100%;
-        padding: 10px; /* Reduz o padding para melhorar o espaçamento em dispositivos móveis */
-    }
-
     input[type="text"],
-    input[type="password"],
-    button[type="submit"] {
-        width: 100%; /* Garantir que os campos de input e botão ocupem toda a largura */
-        max-width: 100%; /* Certifica-se de que não ultrapassem o limite */
-        padding: 1rem; /* Manter padding confortável em telas menores */
-    }
-
-    h1 {
-        font-size: 1.5rem; /* Ajusta o tamanho do título para telas menores */
-    }
-
-    a.forgot-password,
-    a.create-account {
-        font-size: 0.9rem; /* Tamanho de fonte menor para links */
-    }
-
-    .linha {
-        margin: 1rem 0; /* Ajusta a margem para telas pequenas */
+    input[type="password"]
+     {
+        width: 300px; /* Ajusta o comprimento dos inputs e do botão */
+        padding: 1rem; /* Mantém o mesmo padding */
     }
 }
+
