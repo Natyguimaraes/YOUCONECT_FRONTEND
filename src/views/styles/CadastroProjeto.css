@@ -8,6 +8,12 @@
     padding: 20px;
   }
   
+  .timeline-content h2 {
+    font-size: 1.3em;
+    margin: 10px 0;
+    text-align: left;
+    text-transform: uppercase;
+}
   h2 {
     margin-bottom: 30px;
     font-size: 1.5em;
@@ -16,45 +22,6 @@
     text-align: center;
   }
   
-  
-
-  
-  .capa-texto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2em;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  }
-  
-  .upload-button-capa {
-    position: absolute;
-    top: 10%;
-    right: 10%;
-    background-color: #fff;
-    color: #3a6da8;
-    border: 2px solid #3a6da8;
-    border-radius: 50%;
-    font-size: 24px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    opacity: 0.8;
-  }
-  
-  .upload-button-capa input {
-    display: none;
-  }
-  
-  .upload-button-capa:hover {
-    opacity: 1;
-  }
   
   /* Estilos da imagem de perfil */
   /* Ajuste para a posição do ícone de adicionar foto de perfil */
@@ -73,36 +40,6 @@
     object-fit: cover;
     margin-bottom: 10px;
   }
-  
-  .upload-button-perfil {
-    position: absolute;
-    bottom: 10px;  /* Alinha o ícone na parte inferior da imagem */
-    right: 10px;   /* Alinha o ícone no canto direito da imagem */
-    background-color: #fff;
-    color: #3a6da8;
-    border: 2px solid #3a6da8;
-    border-radius: 50%;
-    font-size: 18px;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.2s ease-in-out;
-  }
-  
-  .upload-button-perfil input {
-    display: none;
-  }
-  
-  .upload-button-perfil:hover {
-    opacity: 1;
-  }
-  
-  
- 
   
   /* Estilos do formulário */
   .form {
@@ -146,38 +83,7 @@
     -moz-appearance: none;
     appearance: none;
   }
-  
-  /* Estilo para o botão de adicionar projeto */
-  .botao-adicionar-projeto {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    cursor: pointer;
-  }
-  
-  .botao-adicionar-projeto img {
-    width: 40px; /* Ajuste o tamanho conforme necessário */
-    height: auto;
-  }
-  
-  /* Estilos do campo para anexar arquivo */
-  .campo-arquivo {
-    margin-top: 10px;
-  }
-  
-  .campo-arquivo label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .campo-arquivo input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+
   
   /* Estilos da descrição do projeto */
   .descricao {
@@ -218,25 +124,6 @@
       grid-template-columns: 1fr;
     }
   
-    .upload-button-capa,
-    .upload-button-perfil {
-      font-size: 20px;
-      width: 35px;
-      height: 35px;
-    }
-  
-    .perfil img {
-      width: 100px;
-      height: 100px;
-    }
-  
-    .capa-texto {
-      font-size: 1.5em;
-    }
-  
-    .botao-salvar {
-      padding: 10px 15px;
-    }
   
     .botao-adicionar-projeto img {
       width: 30px;
