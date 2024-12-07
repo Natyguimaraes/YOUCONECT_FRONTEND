@@ -85,6 +85,8 @@ border-radius: 50%;
 
 .timeline-content {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .timeline-content img {
@@ -104,15 +106,40 @@ border-radius: 50%;
 .likes {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    gap: 10px;
 }
 
 .like-button {
     cursor: pointer;
-    font-size: 1.5em;
     margin-right: 10px;
 }
 
 .like-count {
     color: #888;
+}
+
+.comment-section {
+    margin-top: 10px;
+
+}
+
+.comment-list {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.comment-list .comment {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;  /* Faz o input ocupar 100% da largura do seu contêiner */
+    padding: 5px;
+}
+
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
 }

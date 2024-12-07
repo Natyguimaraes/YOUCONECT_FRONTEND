@@ -1,147 +1,218 @@
 /* Estilos principais */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-    padding: 20px;
-  }
-  
-  .timeline-content h2 {
-    font-size: 1.3em;
-    margin: 10px 0;
-    text-align: left;
-    text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
 }
-  h2 {
-    margin-bottom: 30px;
-    font-size: 1.5em;
-    color: #333;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  
-  /* Estilos da imagem de perfil */
-  /* Ajuste para a posição do ícone de adicionar foto de perfil */
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Estilos da imagem de perfil */
 .perfil {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .perfil img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
-  
-  /* Estilos do formulário */
-  .form {
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 20px;
-  }
-  
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .campo {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-  }
-  
-  .campo label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .campo input,
-  .campo select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%;
-    margin-bottom: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.perfil img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #3a6da8;
+  transition: all 0.3s ease;
+}
+
+.perfil img:hover {
+  border-color: #2d568c;
+  transform: scale(1.1);
+}
+
+.input-file {
+  margin-top: 10px;
+}
+
+/* Estilos do formulário */
+.form {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%; /* Garante que o campo ocupe 100% da largura disponível */
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: #3a6da8;
+  outline: none;
+}
+
+.campo label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.campo select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Estilos da descrição do projeto */
+.descricao textarea {
+  width: 100%; /* Garante que a textarea ocupe 100% da largura disponível */
+  padding: 12px;
+  height: 150px; /* Defina uma altura adequada */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical; /* Permite redimensionar apenas verticalmente */
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+.descricao textarea:focus {
+  border-color: #3a6da8; /* Cor de foco do campo */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .descricao textarea {
+    padding: 10px; /* Ajusta o padding para telas menores */
     font-size: 1em;
   }
-  
-  .campo select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+}
+
+@media (max-width: 480px) {
+  .descricao textarea {
+    font-size: 0.9em; /* Ajusta o tamanho da fonte para dispositivos muito pequenos */
+  }
+}
+
+
+/* Estilos do botão de salvar */
+.botao-salvar {
+  background-color: #3a6da8;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2em;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.botao-salvar:hover {
+  background-color: #2d568c;
+}
+
+.botao-salvar:active {
+  background-color: #244c6b;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr; /* Muda para uma coluna para telas menores */
   }
 
-  
-  /* Estilos da descrição do projeto */
-  .descricao {
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 20px;
-  }
-  
-  .descricao textarea {
-    width: 100%;
-    padding: 10px;
-    height: 120px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: none;
-  }
-  
-  /* Estilos do botão de salvar */
-  .botao-salvar {
-    background-color: #3a6da8;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    width: 100%;
-    max-width: 800px;
-  }
-  
-  .botao-salvar:hover {
-    background-color: #2d568c;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .form-grid {
-      grid-template-columns: 1fr;
-    }
-  
-  
-    .botao-adicionar-projeto img {
-      width: 30px;
-    }
-  }
-  
-  .input-url {
-    width: 100%;
-    padding: 8px;
-    margin-top: 10px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .logotipo-img {
-    width: 100px; /* Ajuste o tamanho conforme necessário */
+  .perfil img {
+    width: 100px;
     height: 100px;
-    object-fit: cover;
-    margin-top: 10px;
   }
-  
+
+  .campo input,
+  .campo select,
+  .campo textarea {
+    font-size: 1em;
+    padding: 10px; /* Ajusta o padding para telas menores */
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .botao-salvar {
+    padding: 12px;
+  }
+
+  .form {
+    padding: 15px;
+  }
+
+  .campo label {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil img {
+    width: 90px;
+    height: 90px;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  .campo input,
+  .campo select,
+  .campo textarea {
+    font-size: 0.9em;
+  }
+
+  .botao-salvar {
+    padding: 12px;
+    font-size: 1.1em;
+  }
+}
