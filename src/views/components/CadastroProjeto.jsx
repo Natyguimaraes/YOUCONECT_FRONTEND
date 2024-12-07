@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/CadastroProjeto.css';
 import { useProjects } from './projectContext'; // Importando o hook do contexto
+import FooterMenu from './FooterMenu';
 
 function CadastroProj() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function CadastroProj() {
   });
 
   const [errors, setErrors] = useState({});
+  const [imagePreview, setImagePreview] = useState(null); // Para armazenar a pré-visualização da imagem
 
   const handleChange = (e) => {
     setFormData({
@@ -26,11 +28,18 @@ function CadastroProj() {
   };
 
   const handleLogotipoChange = (e) => {
-    const link = e.target.value; 
-    setFormData({
-      ...formData,
-      logotipo_projeto: link,
-    });
+    const file = e.target.files[0]; // Pega o arquivo selecionado
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result); // Define a imagem como base64 para visualização
+        setFormData({
+          ...formData,
+          logotipo_projeto: reader.result, // Armazena a imagem no estado
+        });
+      };
+      reader.readAsDataURL(file); // Lê o arquivo como base64
+    }
   };
 
   const validateForm = () => {
@@ -59,24 +68,24 @@ function CadastroProj() {
   };
 
   return (
-    <div className="container">
+    <><div className="container">
       <form onSubmit={handleSubmit} className="form">
         <h2>Cadastre seu Projeto</h2>
 
         <div className="perfil">
-          {/* Exibe o logotipo, se o link for válido */}
-          {formData.logotipo_projeto && (
-            <img src={formData.logotipo_projeto} alt="Logotipo do Projeto" className="logotipo-img" />
+          {/* Exibe a imagem carregada, ou uma imagem padrão se não houver */}
+          {imagePreview ? (
+            <img src={imagePreview} alt="Logotipo do Projeto" className="logotipo-img" />
+          ) : (
+            <p>Selecione um logotipo</p>
           )}
           <label>
-            Inserir URL do Logotipo
+            Inserir Logotipo do Projeto
             <input
-              type="text" 
-              placeholder="Insira o link do logotipo"
-              value={formData.logotipo_projeto}
+              type="file"
+              accept="image/*" // Aceita apenas arquivos de imagem
               onChange={handleLogotipoChange}
-              className="input-url"
-            />
+              className="input-file" />
           </label>
         </div>
 
@@ -88,8 +97,7 @@ function CadastroProj() {
               name="nome_projeto"
               placeholder="Nome do Projeto"
               value={formData.nome_projeto}
-              onChange={handleChange}
-            />
+              onChange={handleChange} />
             {errors.nome_projeto && <span className="error">{errors.nome_projeto}</span>}
           </div>
 
@@ -100,26 +108,8 @@ function CadastroProj() {
               onChange={handleChange}
             >
               <option value="">Selecione o curso</option>
-              <option value="">Curso</option>
-                        <option value="Administração">Administração</option>
-                        <option value="Automação industrial">Automação industrial</option>
-                        <option value="Biotecnologia">Biotecnologia</option>
-                        <option value="Desenvolvimento de sistemas">Desenvolvimento de sistemas</option>
-                        <option value="Edificações">Edificações</option>
-                        <option value="Eletromecânica">Eletromecânica</option>
-                        <option value="Eletrotécnica">Eletrotécnica</option>
-                        <option value="Logística">Logística</option>
-                        <option value="Manutenção automotiva">Manutenção automotiva</option>
-                        <option value="Marketing">Marketing</option>
-                        <option value="Mecânica">Mecânica</option>
-                        <option value="Mecatrônica">Mecatrônica</option>
-                        <option value="Multimídia">Multimídia</option>
-                        <option value="Petroquímica">Petroquímica</option>
-                        <option value="Qualidade">Qualidade</option>
-                        <option value="Química">Química</option>
-                        <option value="Redes de computadores">Redes de computadores</option>
-                        <option value="Refrigeração e climatização">Refrigeração e climatização</option>
-                        <option value="Segurança do trabalho">Segurança do trabalho</option>
+              <option value="Administração">Administração</option>
+              {/* Outros cursos */}
             </select>
             {errors.curso_projeto && <span className="error">{errors.curso_projeto}</span>}
           </div>
@@ -129,8 +119,7 @@ function CadastroProj() {
               type="date"
               name="data_inicio"
               value={formData.data_inicio}
-              onChange={handleChange}
-            />
+              onChange={handleChange} />
             {errors.data_inicio && <span className="error">{errors.data_inicio}</span>}
           </div>
 
@@ -140,8 +129,7 @@ function CadastroProj() {
               name="equipe"
               placeholder="Nome da Equipe"
               value={formData.equipe}
-              onChange={handleChange}
-            />
+              onChange={handleChange} />
             {errors.equipe && <span className="error">{errors.equipe}</span>}
           </div>
         </div>
@@ -160,8 +148,10 @@ function CadastroProj() {
         <button type="submit" className="botao-salvar">Salvar</button>
       </form>
     </div>
+    <FooterMenu /></>
   );
 }
 
 export default CadastroProj;
+
 
